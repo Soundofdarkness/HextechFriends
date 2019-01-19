@@ -137,7 +137,7 @@ namespace HextechFriendsClient.League
 
             Task.Run(() =>
             {
-                var resp = SendApiRequest("POST", "lol-lobby/v2/lobby/invitations", invite);
+                var resp = SendApiRequest("POST", "lol-lobby/v2/lobby/invitations", new CreateInvite[] { invite });
                 if(resp.StatusCode != HttpStatusCode.OK)
                 {
                     Console.WriteLine(resp.StatusDescription);

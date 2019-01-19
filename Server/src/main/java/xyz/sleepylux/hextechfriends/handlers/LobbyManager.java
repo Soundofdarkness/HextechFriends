@@ -60,6 +60,7 @@ public class LobbyManager {
         out.setSummonerId(summoner.getSummonerId());
         out.setLevel(summoner.getLevel());
         out.setUuid(summoner.getUuid());
+        logger.warn(gson.toJson(out));
         lobby.getOwner().getSocket().send(gson.toJson(out));
         this.pendingJoins.put(summoner.getUuid(), summoner);
         this.userToLobby.put(summoner.getUuid(), lobby.getUuid());

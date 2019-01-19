@@ -37,6 +37,7 @@ namespace HextechFriendsClient.View
                 img.UriSource = new Uri(Constants.GetIconUrl(ownerIconId));
                 img.EndInit();
                 OwnerImage.Source = img;
+                LobbyURL.Text = "";
 
                 LobbyOwner.Content = ownerSummonerName;
             });
