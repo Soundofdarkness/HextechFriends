@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HextechFriendsClient.Protocol.Server
 {
-    class RequestJoinTC
+    public class RequestJoinTC
     {
         public string opCode { get; set; }
         public string uuid { get; set; }

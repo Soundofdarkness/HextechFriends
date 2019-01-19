@@ -2,9 +2,9 @@ package xyz.sleepylux.hextechfriends.models.DTO.server;
 
 public class RegisterLobbyTC {
     private String opCode = "registerLobbyTC";
-    private String uuuid;
+    private String uuid;
 
-    public void setUuuid(String uuid){
-        this.uuuid = uuid;
+    public void setUuid(String uuid){
+        this.uuid = uuid;
     }
 }

@@ -18,5 +18,15 @@ namespace HextechFriendsClient
         {
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, ssl) => true;
         }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            if (e.Args.Length != 1) return;
+            if (e.Args[0].Contains("--override-url="))
+            {
+                string newurl = e.Args[0].Split('=')[1];
+                Constants.SERVER_URL = newurl;
+            }
+        }
     }
 }

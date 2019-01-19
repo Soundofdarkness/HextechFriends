@@ -8,6 +8,21 @@ namespace HextechFriendsClient
 {
     class Constants
     {
-        public static readonly string SERVER_URL = "ws://localhost:8080";
+        public static string SERVER_URL = "ws://localhost:9090";
+
+        public static String GetIconUrl(int iconId)
+        {
+            return $"https://cdn.communitydragon.org/latest/profile-icon/{iconId.ToString()}.jpg";
+        }
+    }
+
+    public enum LobbyJoinState
+    {
+        REQUEST_SENT,
+        INVALID_URL,
+        LOBBY_NOT_FOUND,
+        LOBBY_CLOSED,
+        GENERIC_ERROR,
+        LOBBY_FULL
     }
 }

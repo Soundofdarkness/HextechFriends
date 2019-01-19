@@ -19,6 +19,7 @@ public class Lobby {
         uuid = UUID.randomUUID().toString();
         owner = lobbyOwner;
         summoners = new HashMap<>();
+		platform = lobbyOwner.getPlatform();
         gson = new Gson();
     }
 

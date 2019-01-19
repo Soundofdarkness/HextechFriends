@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -38,24 +39,6 @@ namespace HextechFriendsClient
             Dispatcher.Invoke(() =>
             {
                 ContentControl.Content = userControl;
-            });
-        }
-
-        public void setLeagueStatus(bool running)
-        {
-            Dispatcher.Invoke(() =>
-            {
-                ClientStatusLabel.Content = running ? "Connected" : "Disconnected";
-                ClientStatusLabel.Foreground = running ? Brushes.Green : Brushes.Red;
-            });
-        }
-
-        public void setServerStatus(bool connected)
-        {
-            Dispatcher.Invoke(() =>
-            {
-                ServerStatusLabel.Content = connected ? "Connected" : "Disconnected";
-                ServerStatusLabel.Foreground = connected ? Brushes.Green : Brushes.Red;
             });
         }
     }

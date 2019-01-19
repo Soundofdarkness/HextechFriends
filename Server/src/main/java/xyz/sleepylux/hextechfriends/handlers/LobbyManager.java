@@ -24,11 +24,11 @@ public class LobbyManager {
         User owner = new User(socket, dto);
         Lobby lobby = new Lobby(owner);
         RegisterLobbyTC out = new RegisterLobbyTC();
-        out.setUuuid(lobby.getUuid());
+        out.setUuid(lobby.getUuid());
         socket.send(gson.toJson(out));
         lobbies.put(lobby.getUuid(), lobby);
         userToLobby.put(socket.getAttachment(), lobby.getUuid());
-        logger.info("Created new Lobby %1 with owner %2", lobby.getUuid(), owner.getUsername());
+        logger.info("Created new Lobby %s with owner %s", lobby.getUuid(), owner.getUsername());
     }
 
     public void requestJoin(RequestJoinTS dto, WebSocket socket){
@@ -59,7 +59,7 @@ public class LobbyManager {
         out.setSummonerName(summoner.getUsername());
         out.setLevel(summoner.getLevel());
         out.setUuid(summoner.getUuid());
-        socket.send(gson.toJson(out));
+        lobby.getOwner().getSocket().send(gson.toJson(out));
         this.pendingJoins.put(summoner.getUuid(), summoner);
         this.userToLobby.put(summoner.getUuid(), lobby.getUuid());
         logger.info("Set status of Summoner %1 to pending for lobby %2", summoner.getUsername(),

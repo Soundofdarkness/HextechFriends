@@ -14,16 +14,16 @@ namespace HextechFriendsClient.View
         public CreateLobbyView createLobbyView;
         public CurrentLobbyView currentLobbyView;
         public AcceptUserView acceptUserView;
+        public AppManager appManager;
 
-        public ViewModel(MainWindow mainWindow)
+        public ViewModel(MainWindow mainWindow, AppManager manager)
         {
-            window = mainWindow
-            joinLobbyView = new JoinLobbyView(window.appManager);
-            createLobbyView = new CreateLobbyView(window.appManager);
-            currentLobbyView = new CurrentLobbyView(window.appManager);
-            acceptUserView = new AcceptUserView(window.appManager);
-
-            ChangeView(ViewState.JOIN_LOBBY);
+            window = mainWindow;
+            appManager = manager;
+            joinLobbyView = new JoinLobbyView(manager);
+            createLobbyView = new CreateLobbyView(manager);
+            currentLobbyView = new CurrentLobbyView(manager);
+            acceptUserView = new AcceptUserView(manager);
         }
 
         public void ChangeView(ViewState state)
@@ -46,18 +46,6 @@ namespace HextechFriendsClient.View
             }
         }
 
-        public JoinLobbyView GetView<T>() where T : JoinLobbyView
-        {
-            return joinLobbyView;
-        }
-
-        public CreateLobbyView GetView<T>() where T : CreateLobbyView
-        {
-            return createLobbyView;
-        }
-
-        publ
-
         public dynamic GetView<T>()
         {
             Type type = typeof(T);
@@ -77,6 +65,17 @@ namespace HextechFriendsClient.View
             {
                 return acceptUserView;
             }
+        }
+
+        public void EndInit()
+        {
+            ChangeView(ViewState.JOIN_LOBBY);
+            joinLobbyView.setLeagueStatus(appManager.leagueClient.Connected);
+        }
+
+        public ViewState GetCurrentView()
+        {
+            return current;
         }
     }
 

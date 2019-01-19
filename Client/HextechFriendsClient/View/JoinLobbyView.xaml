@@ -11,5 +11,6 @@
         <Button x:Name="joinButton" Content="Join Lobby" HorizontalAlignment="Left" Margin="325,230,0,0" VerticalAlignment="Top" Width="150" Height="35"/>
         <Label x:Name="ClientStatusLabel" Content="" HorizontalAlignment="Left" Margin="432,373,0,0" VerticalAlignment="Top" Width="350" Height="36" FontSize="20" HorizontalContentAlignment="Center"/>
         <Label x:Name="ServerStatusLabel" Content="" HorizontalAlignment="Left" Margin="10,373,0,0" VerticalAlignment="Top" Width="350" Height="36" FontSize="20" HorizontalContentAlignment="Center"/>
+        <Label x:Name="StatusLabel" HorizontalAlignment="Left" Margin="200,299,0,0" VerticalAlignment="Top" Width="400" Height="36" FontSize="20" HorizontalContentAlignment="Center"/>
     </Grid>
 </UserControl>

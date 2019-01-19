@@ -66,6 +66,10 @@
     </ApplicationDefinition>
     <Compile Include="Constants.cs" />
     <Compile Include="League\EventType.cs" />
+    <Compile Include="League\LeagueSocketManager.cs" />
+    <Compile Include="League\Protocol\CurrentInvites.cs" />
+    <Compile Include="League\Protocol\CurrentSummoner.cs" />
+    <Compile Include="League\Protocol\LobbyInfo.cs" />
     <Compile Include="LobbyStatus.cs" />
     <Compile Include="Protocol\Client\CloseLobbyTS.cs" />
     <Compile Include="Protocol\Client\JoinAcceptedTS.cs" />
@@ -74,6 +78,7 @@
     <Compile Include="Protocol\Client\RegisterLobbyTS.cs" />
     <Compile Include="Protocol\Client\RequestJoinTS.cs" />
     <Compile Include="Protocol\HextechSocket.cs" />
+    <Compile Include="Protocol\ProtocolManager.cs" />
     <Compile Include="Protocol\Server\CloseLobbyTC.cs" />
     <Compile Include="Protocol\Server\JoinAcceptedTC.cs" />
     <Compile Include="Protocol\Server\JoinRejectedLobbyFull.cs" />
@@ -81,6 +86,7 @@
     <Compile Include="Protocol\Server\LeaveLobbyTC.cs" />
     <Compile Include="Protocol\Server\RegisterLobbyTC.cs" />
     <Compile Include="Protocol\Server\RequestJoinTC.cs" />
+    <Compile Include="RequestQueue.cs" />
     <Compile Include="View\AcceptUserView.xaml.cs">
       <DependentUpon>AcceptUserView.xaml</DependentUpon>
     </Compile>

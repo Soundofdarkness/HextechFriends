@@ -33,7 +33,8 @@ public class HextechServer extends WebSocketServer {
     @Override
     public void onClose(WebSocket conn, int code, String reason, boolean remote) {
         // userHandler.RemoveUser(conn.getAttachment());
-        logger.debug(String.format("Removed User %s from database", conn.getAttachment()));
+        messageHandler.leaveLobbyDC(conn);
+        logger.debug(String.format("Removed User %s from database", conn.getAttachment().toString()));
     }
 
     @Override

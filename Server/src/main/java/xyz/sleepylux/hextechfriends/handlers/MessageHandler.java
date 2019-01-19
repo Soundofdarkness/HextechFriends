@@ -23,6 +23,7 @@ public class MessageHandler {
     }
 
     public void handleMessage(WebSocket socket, String message){
+		System.out.println(message);
         String opcode = getOpcode(message);
 
         switch(opcode){
@@ -35,7 +36,12 @@ public class MessageHandler {
             case "joinRejectedTS":
                 joinRejected(socket, message); break;
             case "closeLobbyTS":
-
+				closeLobby(socket, message); break;
+            case "leaveLobbyTS":
+                leaveLobby(socket, message); break;
+			default:
+				logger.warn("Unknown Opcode: " + message);
+				break;
         }
     }
 
@@ -67,6 +73,11 @@ public class MessageHandler {
 
     private void leaveLobby(WebSocket socket, String message){
         LeaveLobbyTS dto = _gson.fromJson(message, LeaveLobbyTS.class);
+        _lobbyManager.leaveLobby(dto, socket);
+    }
+    public void leaveLobbyDC(WebSocket socket){
+        LeaveLobbyTS dto = new LeaveLobbyTS();
+        _lobbyManager.closeLobby(new CloseLobbyTS(), socket);
         _lobbyManager.leaveLobby(dto, socket);
     }
     private void closeLobby(WebSocket socket, String message){

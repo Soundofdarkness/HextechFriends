@@ -26,5 +26,36 @@ namespace HextechFriendsClient.View
             manager = appManager;
             InitializeComponent();
         }
+
+
+        public void SetLobbyJoin(int ownerIconId, string ownerSummonerName)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                BitmapImage img = new BitmapImage();
+                img.BeginInit();
+                img.UriSource = new Uri(Constants.GetIconUrl(ownerIconId));
+                img.EndInit();
+                OwnerImage.Source = img;
+
+                LobbyOwner.Content = ownerSummonerName;
+            });
+        }
+
+        public void setLobbyCreate(int ownerIconId, string ownerSummonerName, string url)
+        {
+
+            Dispatcher.Invoke(() =>
+            {
+                BitmapImage img = new BitmapImage();
+                img.BeginInit();
+                img.UriSource = new Uri(Constants.GetIconUrl(ownerIconId));
+                img.EndInit();
+                OwnerImage.Source = img;
+
+                LobbyOwner.Content = ownerSummonerName;
+                LobbyURL.Content = "hextech://" + url;
+            });
+        }
     }
 }
