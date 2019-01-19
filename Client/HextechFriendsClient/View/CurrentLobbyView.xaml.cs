@@ -54,7 +54,7 @@ namespace HextechFriendsClient.View
                 OwnerImage.Source = img;
 
                 LobbyOwner.Content = ownerSummonerName;
-                LobbyURL.Content = "hextech://" + url;
+                LobbyURL.Text = "hextech://" + url;
             });
         }
     }

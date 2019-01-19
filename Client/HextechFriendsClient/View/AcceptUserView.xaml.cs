@@ -39,7 +39,7 @@ namespace HextechFriendsClient.View
             Task.Run(() =>
             {
                 var dto = new JoinRejectedTS();
-                dto.uuid = currentJoinRequest.summonerName;
+                dto.uuid = currentJoinRequest.uuid;
                 manager.hextechSocket.webSocket.Send(JsonConvert.SerializeObject(dto));
             });
             manager.ViewModel.ChangeView(ViewState.CURRENT_LOBBY);
@@ -52,6 +52,7 @@ namespace HextechFriendsClient.View
             {
                 var dto = new JoinAcceptedTS();
                 dto.uuid = currentJoinRequest.uuid;
+                manager.leagueClient.InviteUser(currentJoinRequest.summonerName, currentJoinRequest.summonerId);
                 manager.hextechSocket.webSocket.Send(JsonConvert.SerializeObject(dto));
             });
             manager.ViewModel.ChangeView(ViewState.CURRENT_LOBBY);
@@ -60,9 +61,9 @@ namespace HextechFriendsClient.View
 
         public void AcceptUser(RequestJoinTC dto)
         {
+            currentJoinRequest = dto;
             Dispatcher.Invoke(() =>
-            {
-                currentJoinRequest = dto;
+            { 
                 BitmapImage img = new BitmapImage();
                 img.BeginInit();
                 img.UriSource = new Uri(Constants.GetIconUrl(dto.iconId));

@@ -57,6 +57,7 @@ public class LobbyManager {
         RequestJoinTC out = new RequestJoinTC();
         out.setIconId(summoner.getIconId());
         out.setSummonerName(summoner.getUsername());
+        out.setSummonerId(summoner.getSummonerId());
         out.setLevel(summoner.getLevel());
         out.setUuid(summoner.getUuid());
         lobby.getOwner().getSocket().send(gson.toJson(out));

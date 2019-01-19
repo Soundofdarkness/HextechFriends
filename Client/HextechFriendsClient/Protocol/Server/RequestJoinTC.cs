@@ -11,6 +11,7 @@ namespace HextechFriendsClient.Protocol.Server
         public string opCode { get; set; }
         public string uuid { get; set; }
         public string summonerName { get; set; }
+        public string summonerId { get; set; }
         public int level { get; set; }
         public int iconId { get; set; }
     }

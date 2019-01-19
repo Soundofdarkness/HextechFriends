@@ -4,6 +4,7 @@ public class RequestJoinTC {
     private String opCode = "requestJoinTC";
     private String uuid;
     private String summonerName;
+    private String summonerId;
     private int level;
     private int iconId;
 
@@ -14,4 +15,6 @@ public class RequestJoinTC {
     public void setIconId(int iconId) { this.iconId = iconId; }
 
     public void setSummonerName(String summonerName){ this.summonerName = summonerName; }
+
+    public void setSummonerId(String summonerId) { this.summonerId = summonerId; }
 }

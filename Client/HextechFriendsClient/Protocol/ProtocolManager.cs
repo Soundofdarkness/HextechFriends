@@ -112,11 +112,13 @@ namespace HextechFriendsClient.Protocol
             var dto = JsonConvert.DeserializeObject<RegisterLobbyTC>(message);
             hextechSocket.appManager.ViewModel.ChangeView(ViewState.CURRENT_LOBBY);
             CurrentLobbyView view = hextechSocket.appManager.ViewModel.GetView<CurrentLobbyView>();
+            CurrentSummoner summoner = null;
             Task.Run(() =>
             {
                 var data = hextechSocket.appManager.leagueClient.GetFromAPI("lol-summoner/v1/current-summoner");
-                var json = JsonConvert.DeserializeObject<CurrentSummoner>(data);
-                view.setLobbyCreate(json.profileIconId, json.displayName, dto.uuid);
+                summoner = JsonConvert.DeserializeObject<CurrentSummoner>(data);
+                if (summoner == null) Console.WriteLine("Critical Error summoner is null");
+                view.setLobbyCreate(summoner.profileIconId, summoner.displayName, dto.uuid);
             });
         }
 

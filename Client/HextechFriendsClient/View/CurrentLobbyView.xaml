@@ -9,7 +9,7 @@
     <Grid>
         <Image HorizontalAlignment="Left" Height="100" Margin="122,49,0,0" VerticalAlignment="Top" Width="100" Name="OwnerImage"/>
         <Label Content="" HorizontalAlignment="Left" Margin="280,79,0,0" VerticalAlignment="Top" Width="337" Height="40" FontSize="20" Name="LobbyOwner"/>
-        <Label HorizontalAlignment="Left" Margin="50,319,0,0" VerticalAlignment="Top" Width="700" Height="50" FontSize="30px" Content="LOBBYURL"
+        <TextBox HorizontalAlignment="Left" Margin="50,319,0,0" VerticalAlignment="Top" Width="700" Height="50" FontSize="30px" Text="LOBBYURL" IsReadOnly="True" BorderThickness="0" TextWrapping="Wrap"
                HorizontalContentAlignment="Center" Name="LobbyURL" />
         <Label Content="" HorizontalAlignment="Left" Margin="225,210,0,0" VerticalAlignment="Top" Width="350" Height="40" FontSize="20px"
                HorizontalContentAlignment="Center" Foreground="Green" Name="LobbyStatus"/>

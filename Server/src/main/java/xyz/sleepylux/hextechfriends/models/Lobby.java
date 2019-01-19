@@ -39,8 +39,12 @@ public class Lobby {
     public Collection<User> getSummoners(){ return summoners.values(); }
 
     private void broadcast(String message){
-        this.owner.getSocket().send(message);
-        this.summoners.values().forEach(k -> k.getSocket().send(message));
+        try {
+            this.owner.getSocket().send(message);
+            this.summoners.values().forEach(k -> k.getSocket().send(message));
+        }
+        catch (Exception ex) { //Ignore
+        }
     }
 
     public String getUuid(){ return uuid; }

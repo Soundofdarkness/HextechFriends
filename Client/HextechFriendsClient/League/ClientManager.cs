@@ -44,6 +44,7 @@ namespace HextechFriendsClient.League
             Port = int.Parse(lockfile[2]);
             Password = lockfile[3];
             AuthorizationToken = Convert.ToBase64String(Encoding.UTF8.GetBytes($"riot:{Password}"));
+            Console.WriteLine($"{Port} | {AuthorizationToken}");
         }
 
         private string GetLCUPath()

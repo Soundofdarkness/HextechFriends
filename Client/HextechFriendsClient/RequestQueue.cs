@@ -30,9 +30,10 @@ namespace HextechFriendsClient
         {
             if(queue.Count > 0 && !bypass)
             {
-                if (appManager.ViewModel.GetCurrentView() == ViewState.ACCEPT_USER || !bypass) return;
+                if (appManager.ViewModel.GetCurrentView() == ViewState.ACCEPT_USER && !bypass) return;
                 var dto = queue.Dequeue();
                 AcceptUserView view = appManager.ViewModel.GetView<AcceptUserView>();
+                appManager.ViewModel.ChangeView(ViewState.ACCEPT_USER);
                 view.AcceptUser(dto);
             }
         }

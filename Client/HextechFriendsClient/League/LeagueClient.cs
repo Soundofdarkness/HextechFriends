@@ -11,6 +11,7 @@ using System.Security.Authentication;
 using HextechFriendsClient.View;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using HextechFriendsClient.League.Protocol;
 
 namespace HextechFriendsClient.League
 {
@@ -124,6 +125,26 @@ namespace HextechFriendsClient.League
             var data = stream.ReadToEnd();
             resp.Close();
             return data;
+        }
+
+
+        public void InviteUser(string summonerName, string summonerId)
+        {
+            Int64 intId = Int64.Parse(summonerId);
+            CreateInvite invite = new CreateInvite();
+            invite.toSummonerId = intId;
+            invite.toSummonerName = summonerName;
+
+            Task.Run(() =>
+            {
+                var resp = SendApiRequest("POST", "lol-lobby/v2/lobby/invitations", invite);
+                if(resp.StatusCode != HttpStatusCode.OK)
+                {
+                    Console.WriteLine(resp.StatusDescription);
+                }
+                resp.Close();
+            });
+
         }
     }
 }

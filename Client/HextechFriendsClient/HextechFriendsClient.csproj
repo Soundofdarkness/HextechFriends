@@ -67,6 +67,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="League\EventType.cs" />
     <Compile Include="League\LeagueSocketManager.cs" />
+    <Compile Include="League\Protocol\CreateInvite.cs" />
     <Compile Include="League\Protocol\CurrentInvites.cs" />
     <Compile Include="League\Protocol\CurrentSummoner.cs" />
     <Compile Include="League\Protocol\LobbyInfo.cs" />
