@@ -22,6 +22,7 @@ namespace HextechFriendsClient.League
         public AppManager AppManager;
         public LeagueSocketManager Leaguemanager;
         public bool Connected = false;
+        public bool LobbyOwner = false;
 
         public LeagueClient(AppManager manager)
         {
@@ -84,7 +85,7 @@ namespace HextechFriendsClient.League
                     }
                     else if (data[2]["eventType"].ToString() == "Delete")
                     {
-                        // Handle Lobby Close
+                        Leaguemanager.HandleLobbyClosed();
                     }
                     break;
                 default:
@@ -134,6 +135,7 @@ namespace HextechFriendsClient.League
             CreateInvite invite = new CreateInvite();
             invite.toSummonerId = intId;
             invite.toSummonerName = summonerName;
+            LobbyOwner = true;
 
             Task.Run(() =>
             {

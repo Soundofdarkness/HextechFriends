@@ -1,4 +1,5 @@
 ﻿using HextechFriendsClient.League.Protocol;
+using HextechFriendsClient.Protocol.Client;
 using HextechFriendsClient.View;
 using Newtonsoft.Json;
 using System;
@@ -23,6 +24,21 @@ namespace HextechFriendsClient.League
             leagueClient.AppManager.ViewModel.ChangeView(View.ViewState.CREATE_LOBBY);
             CreateLobbyView view = leagueClient.AppManager.ViewModel.GetView<CreateLobbyView>();
             view.CreateLobby(info);
+        }
+
+        public void HandleLobbyClosed()
+        {
+            if (leagueClient.LobbyOwner)
+            {
+                CloseLobbyTS closeLobbyTS = new CloseLobbyTS();
+                leagueClient.AppManager.hextechSocket.webSocket.Send(JsonConvert.SerializeObject(closeLobbyTS));
+            }
+            else
+            {
+                LeaveLobbyTS leaveLobbyTS = new LeaveLobbyTS();
+                leagueClient.AppManager.hextechSocket.webSocket.Send(JsonConvert.SerializeObject(leaveLobbyTS));
+            }
+            leagueClient.AppManager.ViewModel.ChangeView(ViewState.JOIN_LOBBY);
         }
     }
 }

@@ -36,6 +36,7 @@ namespace HextechFriendsClient.View
             StatusLabel.Content = "Trying to join Lobby";
             var result = manager.JoinLobby(lobbyurl.Text);
             lobbyurl.Text = "Lobby Url";
+            lobbyurl.FontSize = 22;
             setStatus(result);
         }
 
@@ -75,12 +76,15 @@ namespace HextechFriendsClient.View
 
         private void Lobbyurl_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (lobbyurl.Text == "") lobbyurl.Text = "Lobby Url";
+            if (lobbyurl.Text != "") return;
+            lobbyurl.Text = "Lobby Url";
+            lobbyurl.FontSize = 22;
         }
 
         private void Lobbyurl_GotFocus(object sender, RoutedEventArgs e)
         {
             lobbyurl.Text = "";
+            lobbyurl.FontSize = 15;
         }
 
 

@@ -4,12 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HextechFriendsClient.View"
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Image x:Name="icon" HorizontalAlignment="Left" Height="100" Margin="122,49,0,0" VerticalAlignment="Top" Width="100"/>
         <Label x:Name="summonerName" Content="" HorizontalAlignment="Left" Margin="280,79,0,0" VerticalAlignment="Top" Width="337" Height="40" FontSize="20"/>
-        <Button Name="Accept" Content="Accept" HorizontalAlignment="Left" Margin="122,268,0,101" VerticalAlignment="Center" Width="200" Height="50" FontSize="36"/>
-        <Button Name="Decline" Content="Decline" HorizontalAlignment="Center" Margin="507,268,85,101" VerticalAlignment="Center" Width="200" Height="50" FontSize="36" />
+        <Button Name="Accept" Content="Accept" HorizontalAlignment="Left" Margin="122,268,0,101" VerticalAlignment="Center" Width="200" Height="50" FontSize="36" 
+                Controls:ControlsHelper.ContentCharacterCasing="Normal" Style="{DynamicResource SquareButtonStyle}"/>
+        <Button Name="Decline" Content="Decline" HorizontalAlignment="Center" Margin="507,268,85,101" VerticalAlignment="Center" Width="200" Height="50" FontSize="36" 
+                Controls:ControlsHelper.ContentCharacterCasing="Normal" Style="{DynamicResource SquareButtonStyle}"/>
     </Grid>
 </UserControl>

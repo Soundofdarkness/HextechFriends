@@ -30,6 +30,7 @@ namespace HextechFriendsClient.View
 
         public void SetLobbyJoin(int ownerIconId, string ownerSummonerName)
         {
+            manager.leagueClient.LobbyOwner = false;
             Dispatcher.Invoke(() =>
             {
                 BitmapImage img = new BitmapImage();
@@ -45,7 +46,7 @@ namespace HextechFriendsClient.View
 
         public void setLobbyCreate(int ownerIconId, string ownerSummonerName, string url)
         {
-
+            manager.leagueClient.LobbyOwner = true;
             Dispatcher.Invoke(() =>
             {
                 BitmapImage img = new BitmapImage();
