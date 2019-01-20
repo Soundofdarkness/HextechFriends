@@ -33,6 +33,7 @@ namespace HextechFriendsClient.View
             manager.leagueClient.LobbyOwner = false;
             Dispatcher.Invoke(() =>
             {
+                LobbyURL.FontSize = 20;
                 BitmapImage img = new BitmapImage();
                 img.BeginInit();
                 img.UriSource = new Uri(Constants.GetIconUrl(ownerIconId));
@@ -47,8 +48,10 @@ namespace HextechFriendsClient.View
         public void setLobbyCreate(int ownerIconId, string ownerSummonerName, string url)
         {
             manager.leagueClient.LobbyOwner = true;
+            
             Dispatcher.Invoke(() =>
             {
+                LobbyURL.FontSize = 20;
                 BitmapImage img = new BitmapImage();
                 img.BeginInit();
                 img.UriSource = new Uri(Constants.GetIconUrl(ownerIconId));
