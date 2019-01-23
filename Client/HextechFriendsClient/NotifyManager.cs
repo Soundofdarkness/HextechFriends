@@ -42,14 +42,18 @@ namespace HextechFriendsClient
 
         public static bool FlashWindow()
         {
-            IntPtr hWnd = new WindowInteropHelper(App.Current.MainWindow).Handle;
-            FLASHWINFO fInfo = new FLASHWINFO();
-            fInfo.cbSize = Convert.ToUInt32(Marshal.SizeOf(fInfo));
-            fInfo.hwnd = hWnd;
-            fInfo.dwFlags = FLASHW_ALL | FLASHW_TIMERNOFG;
-            fInfo.uCount = UInt32.MaxValue;
-            fInfo.dwTimeout = 0;
-            return FlashWindowEx(ref fInfo);
+            App.Current.Dispatcher.Invoke(() =>
+            {
+                IntPtr hWnd = new WindowInteropHelper(App.Current.MainWindow).Handle;
+                FLASHWINFO fInfo = new FLASHWINFO();
+                fInfo.cbSize = Convert.ToUInt32(Marshal.SizeOf(fInfo));
+                fInfo.hwnd = hWnd;
+                fInfo.dwFlags = FLASHW_ALL | FLASHW_TIMERNOFG;
+                fInfo.uCount = UInt32.MaxValue;
+                fInfo.dwTimeout = 0;
+                return FlashWindowEx(ref fInfo);
+            });
+            return false;
         }
     }
 }

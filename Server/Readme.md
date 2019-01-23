@@ -1,8 +1,8 @@
-# Hextech Friends
+# Hextech Friends Server
 
-//Todo 
+Server component for Hextech Friends.
 
-### License: Currently all rights reserved.
+### License: See in Repository Root.
 
 ### Used in this code:
 
