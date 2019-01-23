@@ -7,11 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="100" Margin="122,49,0,0" VerticalAlignment="Top" Width="100" Name="OwnerImage"/>
-        <Label Content="" HorizontalAlignment="Left" Margin="280,79,0,0" VerticalAlignment="Top" Width="337" Height="40" FontSize="20" Name="LobbyOwner"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="122,149,0,0" VerticalAlignment="Top" Width="100" Name="OwnerImage"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="280,179,0,0" VerticalAlignment="Top" Width="337" Height="40" FontSize="20" Name="LobbyOwner"/>
         <TextBox HorizontalAlignment="Left" Margin="50,319,0,0" VerticalAlignment="Top" Width="700" Height="50" FontSize="30px" Text="Loading .." IsReadOnly="True" BorderThickness="0" TextWrapping="Wrap"
                HorizontalContentAlignment="Center" Name="LobbyURL" />
-        <Label Content="" HorizontalAlignment="Left" Margin="225,210,0,0" VerticalAlignment="Top" Width="350" Height="40" FontSize="20px"
-               HorizontalContentAlignment="Center" Foreground="Green" Name="LobbyStatus"/>
+        <Label Content="Current Lobby" HorizontalAlignment="Left" Margin="50,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.511,0.896" Width="700" Height="66" FontSize="35"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
     </Grid>
 </UserControl>

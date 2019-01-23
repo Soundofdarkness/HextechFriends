@@ -1,11 +1,24 @@
+import com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformer
+
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
 }
 
 group 'xyz.sleepylux'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
+
+jar {
+    manifest {
+        attributes "Main-Class": "xyz.sleepylux.hextechfriends.Launcher"
+    }
+}
+
+shadowJar{
+    transform(Log4j2PluginsCacheFileTransformer)
+}
 
 repositories {
     mavenCentral()
@@ -17,5 +30,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.1'
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.1'
-    compile 'io.sentry:sentry-log4j2:1.7.5'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.11.1'
 }

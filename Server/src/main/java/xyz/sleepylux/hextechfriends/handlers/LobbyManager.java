@@ -109,9 +109,14 @@ public class LobbyManager {
 
     public void closeLobby(CloseLobbyTS dto, WebSocket socket){
         Lobby lobby = lobbies.get(userToLobby.get((String)socket.getAttachment()));
-        if(lobby == null){
-            logger.info("User %1 is not in Lobby. Not closing any lobby.", (String)socket.getAttachment());
+        if(lobby == null) {
+            logger.info("User %1 is not in Lobby. Not closing any lobby.", (String) socket.getAttachment());
             return;
+        }
+        if(!lobby.getOwner().getUuid().equals(socket.getAttachment())){
+            // User is only leaving.
+            lobby.removeSummoner(socket.getAttachment());
+            userToLobby.remove((String)socket.getAttachment());
         }
         lobby.closeLobby();
         lobbies.remove(lobby.getUuid());

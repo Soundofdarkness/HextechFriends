@@ -18,7 +18,9 @@ namespace HextechFriendsClient
         public readonly MainWindow mainWindow;
         public readonly RequestQueue requestQueue;
         public ViewModel ViewModel;
+        public NotifyManager notifyManager = new NotifyManager();
         private LobbyStatus lobbyStatus = new LobbyStatus();
+        public bool joinedLobby = false;
 
         public AppManager(MainWindow window)
         {

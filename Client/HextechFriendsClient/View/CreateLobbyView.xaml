@@ -10,5 +10,7 @@
     <Grid>
         <Button Content="Create Invite URL for your lobby" HorizontalAlignment="Left" Margin="275,200,0,0" VerticalAlignment="Top" Width="250" Height="50" x:Name="Create" 
                 Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" />
+        <Label Content="Create your Lobby" HorizontalAlignment="Left" Margin="100,50,0,0" VerticalAlignment="Top" Width="600" Height="70" FontSize="35"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
     </Grid>
 </UserControl>

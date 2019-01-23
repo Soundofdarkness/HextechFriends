@@ -50,6 +50,6 @@ public class HextechServer extends WebSocketServer {
 
     @Override
     public void onStart() {
-
+        logger.info("Hextech Friends online on ws://localhost:9090");
     }
 }

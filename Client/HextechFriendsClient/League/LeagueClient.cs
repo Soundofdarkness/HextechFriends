@@ -52,6 +52,7 @@ namespace HextechFriendsClient.League
 
         private void LeagueSocket_OnClose(object sender, CloseEventArgs e)
         {
+            Leaguemanager.HandleLobbyClosed();
             JoinLobbyView view = AppManager.ViewModel.GetView<JoinLobbyView>();
             view.setLeagueStatus(false);
         }

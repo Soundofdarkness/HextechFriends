@@ -20,6 +20,8 @@ namespace HextechFriendsClient.League
 
         public void HandleLobbyCreate(string message)
         {
+            // No need to display create lobby tab after joining one
+            if (leagueClient.AppManager.joinedLobby) return;
             var info = JsonConvert.DeserializeObject<LobbyInfo>(message);
             leagueClient.AppManager.ViewModel.ChangeView(View.ViewState.CREATE_LOBBY);
             CreateLobbyView view = leagueClient.AppManager.ViewModel.GetView<CreateLobbyView>();
@@ -28,6 +30,7 @@ namespace HextechFriendsClient.League
 
         public void HandleLobbyClosed()
         {
+            leagueClient.AppManager.joinedLobby = false;
             if (leagueClient.LobbyOwner)
             {
                 CloseLobbyTS closeLobbyTS = new CloseLobbyTS();

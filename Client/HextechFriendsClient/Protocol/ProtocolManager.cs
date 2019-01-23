@@ -68,12 +68,13 @@ namespace HextechFriendsClient.Protocol
 
         private void HandleJoinAcceptedTC(string message)
         {
+            hextechSocket.appManager.joinedLobby = true;
             var dto = JsonConvert.DeserializeObject<JoinAcceptedTC>(message);
             hextechSocket.appManager.ViewModel.ChangeView(ViewState.CURRENT_LOBBY);
             CurrentLobbyView view = hextechSocket.appManager.ViewModel.GetView<CurrentLobbyView>();
             view.SetLobbyJoin(dto.ownerIconId, dto.ownerSummonerName);
-
-            Task.Run(() =>
+            hextechSocket.appManager.notifyManager.DisplayNotification();
+            /* Task.Run(() =>
             {
                 var invitesJson = hextechSocket.appManager.leagueClient.GetFromAPI("lol-lobby/v2/received-invitations");
                 var invites = JsonConvert.DeserializeObject<List<CurrentInvites>>(invitesJson);
@@ -91,6 +92,7 @@ namespace HextechFriendsClient.Protocol
                 if (resp.StatusCode == System.Net.HttpStatusCode.NoContent) return;
                 MessageBox.Show(null, "Failed to accept invite. Please do so manually.", "League Client error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             });
+            */
         }
 
         private void HandleJoinRejectedLobbyFull()

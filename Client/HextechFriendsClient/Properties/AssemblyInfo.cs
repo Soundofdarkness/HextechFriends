@@ -8,9 +8,9 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("HextechFriendsClient")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Invite your Friends, the easy way")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("ElementaIist Lux")]
 [assembly: AssemblyProduct("HextechFriendsClient")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
