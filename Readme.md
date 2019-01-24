@@ -1,6 +1,6 @@
 ![Logo](https://i.imgur.com/79lAFno.png)
 
-[Documentation](hextechfriends.github.io)
+[Documentation](hextechfriends.github.io) [Planned Features](https://hextechfriends.github.io/planned_features/)
 
 ## Legal
 Hextech Friends isn’t endorsed by Riot Games and doesn’t reflect the views or opinions of Riot Games
